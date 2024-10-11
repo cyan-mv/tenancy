@@ -14,14 +14,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id(); // Creates an auto-incrementing primary key column called 'id'
-            $table->unsignedBigInteger('autor_id'); // Creates an 'autor_id' column as an unsigned big integer
-            $table->foreign('autor_id')->references('id')->on('users'); // Sets 'autor_id' as a foreign key referencing the 'id' column in the 'users' table
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->string('title');
             $table->string('slug');
             $table->text('body');
-            $table->string('image-url');
-            $table->timestamps(); // Creates 'created_at' and 'updated_at' timestamp columns
+            $table->string('image_url');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts'); // Drops the 'posts' table if it exists
+        Schema::dropIfExists('posts');
     }
 };
