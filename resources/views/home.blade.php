@@ -16,7 +16,7 @@
                     </h2>
                     <p>{!! $post->body !!}</p>
                     <div class="card-actions justify-end">
-                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="/{{ $post->slug }}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
