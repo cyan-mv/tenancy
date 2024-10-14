@@ -30,7 +30,7 @@ class PostResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
-                    ->required(),
+                    -> required(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->live(onBlur: true)
